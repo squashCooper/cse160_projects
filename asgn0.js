@@ -104,7 +104,7 @@ function handleDrawOperationEvent(){
         
         case 'area':
 
-            cross_prod = Vector3.cross(v2,v1);
+            cross_prod = Vector3.cross(v1,v2);
             area = 0.5 * cross_prod;
             console.log("Area:", area);
 
