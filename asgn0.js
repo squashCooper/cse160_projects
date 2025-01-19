@@ -2,18 +2,17 @@
 let ctx; 
 
 function drawVector(v, color) {
-    let rectX = 0; 
-    let rectY = 0; 
+     
     let rectWidth = 400;
     let rectHeight = 400;
     let scaleFactor = 20;
 
     // start from the center of the rectangle
     ctx.beginPath();
-    ctx.moveTo(rectX + rectWidth / 2, rectY + rectHeight / 2);
+    ctx.moveTo(rectWidth / 2, rectHeight / 2);
     ctx.lineTo(
-        rectX + rectWidth / 2 + v.elements[0] * scaleFactor, // x-component remains the same
-        rectY + rectHeight / 2 - v.elements[1] * scaleFactor // y-component is inverted
+        rectWidth / 2 + v.elements[0] * scaleFactor, // x remains the same
+        rectHeight / 2 - v.elements[1] * scaleFactor // y is inverted
     );
     ctx.strokeStyle = color;
     ctx.closePath();
@@ -73,27 +72,27 @@ function handleDrawOperationEvent() {
     switch(selectedOperation) {
 
         case 'add':
-            const sum = v1.add(v2);
+            sum = v1.add(v2);
             drawVector(sum, "green");
             break;
 
         case 'subtract':
-            const diff = v1.sub(v2);
+            diff = v1.sub(v2);
             drawVector(diff, "green");
             break;
 
         case 'multiply':
-            const v3 = v1.mul(scalarValue);
-            const v4 = v2.mul(scalarValue);
+            v3 = v1.mul(scalarValue);
+            v4 = v2.mul(scalarValue);
             drawVector(v3, "green");
             drawVector(v4, "green");
             break;
         
         case 'divide':
-            const v3Div = v1.div(scalarValue);
-            const v4Div = v2.div(scalarValue);
+            v3Div = v1.div(scalarValue);
+            v4Div = v2.div(scalarValue);
             drawVector(v3Div, "green");
-            drawVector(v4Div, "aquamarine");
+            drawVector(v4Div, "green");
             break;
 
         case'magnitude':
